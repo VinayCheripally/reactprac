@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { getdetails } from "./services/getdetails";
 
-function App() {
+export default function App() {
+  const [searchValue, setSearchValue] = useState("");
+  const [responseData, setResponseData] = useState(null);
+
+  const handleSearch = (searchdata) => {
+    getdetails(searchdata)
+      .then((data) => {
+        setResponseData(data);
+      })
+      .catch(() => {
+        console.log("error");
+      });
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <input
+        type="number"
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value)}
+      />
+      <button onClick={handleSearch}>search</button>
+      {responseData && <div>{responseData.name}</div>}
     </div>
   );
 }
-
-export default App;
