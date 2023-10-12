@@ -6,7 +6,7 @@ export default function App() {
   const [responseData, setResponseData] = useState(null);
 
   const handleSearch = (searchdata) => {
-    getdetails(searchdata)
+    getdetails(searchValue)
       .then((data) => {
         setResponseData(data);
       })
