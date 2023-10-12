@@ -5,7 +5,7 @@ export default function App() {
   const [searchValue, setSearchValue] = useState("");
   const [responseData, setResponseData] = useState(null);
 
-  const handleSearch = (searchdata) => {
+  const handleSearch = () => {
     getdetails(searchValue)
       .then((data) => {
         setResponseData(data);
