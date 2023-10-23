@@ -1,5 +1,6 @@
 export async function getdetails(query) {
   try {
+    console.log(query);
     const response = await fetch(
       `http://127.0.0.1:5000/getinfo?query=${query}`,
       {
