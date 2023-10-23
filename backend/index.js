@@ -13,13 +13,10 @@ app.use((req, res, next) => {
 });
 
 mongoose
-  .connect(
-    "mongodb+srv://vinaycheripally1:vinay123@cluster0.kq7rnjc.mongodb.net/?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("Connected to MongoDB");
   })
