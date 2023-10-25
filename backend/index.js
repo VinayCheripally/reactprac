@@ -40,7 +40,6 @@ app.get("/getinfo", (req, res) => {
   student
     .findOne({ rollno: req.query.query })
     .then((data) => {
-      console.log(data);
       res.send(data);
     })
     .catch((err) => {
