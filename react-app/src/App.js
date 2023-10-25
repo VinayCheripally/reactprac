@@ -39,7 +39,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
     width: "100%",
@@ -57,10 +56,8 @@ function App() {
   const [rows, setrows] = useState([]);
   const [tri, settri] = useState(false);
   const handleSearch = () => {
-    console.log(searchValue);
     getdetails(searchValue)
       .then((data) => {
-        console.log(data);
         setrows(Array(data));
         settri(true);
       })
